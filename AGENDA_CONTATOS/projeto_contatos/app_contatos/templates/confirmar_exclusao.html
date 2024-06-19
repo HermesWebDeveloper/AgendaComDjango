@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Deletar
+{% endblock %}
+
+{% block content %}
+
+<h4>Deseja mesmo excluir o contato {{ contato.firstname }}?</h4>
+<form action="." method="post">
+    {% csrf_token %}
+    <input type="submit" value="Sim">
+    <input type="reset" value="Não" onclick='location.href="{% url "lista_contatos" %}"'>
+</form>
+
+{% endblock %}

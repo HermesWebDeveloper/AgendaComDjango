@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Visualizar {{ contato.firstname }}
+{% endblock %}
+
+{% block content %}
+
+    <h3>Detalhes do Usuário {{ contato.id }}:</h3>
+    <p>Nome: {{ contato.firstname }}</p>
+    <p>Sobrenome: {{ contato.lastname }}</p>
+    <p>Telefone: {{ contato.phone }}</p>
+    <p>E-mail: {{ contato.email }} </p>
+    <p>Endereço: {{ contato.address }} </p>
+
+{% endblock %}

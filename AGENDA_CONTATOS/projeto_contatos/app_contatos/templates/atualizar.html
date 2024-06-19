@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Atualizar Contato
+{% endblock %}
+
+{% block content %}
+    <form class="form-inline" action="." method="post">
+        {% csrf_token %}
+        <!--{{ form.as_p }}-->
+        <div class="w-25 p-3">
+            <div class="form-group">
+                <label>Digite seu primeiro nome:</label>
+                <input type="name" required class="form-control" placeholder="Seu primeiro nome" name="firstname" value="{{ contato.firstname }}">
+            </div>
+        </div>
+        <div class="w-25 p-3">
+            <div class="form-group">
+                <label>Digite seu sobrenome:</label>
+                <input type="name" required class="form-control" value="{{ contato.lastname }}" placeholder="Seu sobrenome" name="lastname" >
+            </div>
+        </div>
+        <div class="w-25 p-3">
+            <div class="form-group">
+                <label>Digite seu número de telefone:</label>
+                <input type="text" required class="form-control" value="{{ contato.phone }}" placeholder="Seu telefone" name="phone">
+            </div>
+        </div>
+        <div class="w-25 p-3">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Endereço de email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ contato.email }}" placeholder="Seu email" name="email">
+                <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+            </div>
+        </div>
+        <div class="w-25 p-3">
+            <div class="form-group">
+                <label>Digite seu endereço residencial:</label>
+                <input type="text" required class="form-control" value="{{ contato.address }}" placeholder="Seu endereço" name="address">
+            </div>
+        </div>
+        <input type="submit" value="Salvar">
+        <input type="reset" value="Cancelar" onclick='location.href="{% url "lista_contatos" %}"'>
+    </form>
+
+{% endblock %}

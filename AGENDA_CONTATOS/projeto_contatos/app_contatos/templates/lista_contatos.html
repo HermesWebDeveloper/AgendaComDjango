@@ -1,0 +1,32 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Lista de Contatos
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="text-align: center;">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th colspan="3">Ações</th>
+            </tr>
+            {% for x in contatos %}
+            <tr>
+                <td> {{ x.id }} </td>
+                <td> {{ x.firstname }} </td>
+                <td> {{ x.lastname }} </td>
+                <td> {{ x.phone }} </td>
+                <td> {{ x.address }} </td>
+                <td><a href="{% url 'update' pk=x.id %}">Atualizar</a></td>
+                <td><a href="{% url 'details' pk=x.id %}">Detalhes</a></td>
+                <td><a href="{% url 'delete' pk=x.id %}">Excluir</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
